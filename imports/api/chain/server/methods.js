@@ -197,7 +197,7 @@ Meteor.methods({
                     let msg = genesis.app_state.genutil.gentxs[i].value.msg;
                     // console.log(msg.type);
                     for (m in msg){
-                        if (msg[m].type == "cosmos-sdk/MsgCreateValidator"){
+                        if (msg[m].type == "chain-demo/MsgCreateValidator"){
                             console.log(msg[m].value);
                             // let command = Meteor.settings.bin.gaiadebug+" pubkey "+msg[m].value.pubkey;
                             let validator = {
@@ -218,7 +218,7 @@ Meteor.methods({
                             // Validators.upsert({consensus_pubkey:msg[m].value.pubkey},validator);
 
                             validator.pub_key = {
-                                "type":"tendermint/PubKeyEd25519",
+                                "type":"chain-demoPubKeyEd25519",
                                 "value":pubkeyValue
                             }
 
@@ -254,7 +254,7 @@ Meteor.methods({
                     let pubkeyValue = Meteor.call('bech32ToPubkey', validator.consensus_pubkey);
 
                     validator.pub_key = {
-                        "type":"tendermint/PubKeyEd25519",
+                        "type":"chain-demoPubKeyEd25519",
                         "value":pubkeyValue
                     }
 

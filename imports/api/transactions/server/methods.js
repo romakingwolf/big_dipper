@@ -21,7 +21,7 @@ Meteor.methods({
         // if (!tx.code){
         //     let msg = tx.tx.value.msg;
         //     for (let m in msg){
-        //         if (msg[m].type == "cosmos-sdk/MsgCreateValidator"){
+        //         if (msg[m].type == "chain-demo/MsgCreateValidator"){
         //             console.log(msg[m].value);
         //             let command = Meteor.settings.bin.gaiadebug+" pubkey "+msg[m].value.pubkey;
         //             let validator = {
@@ -70,7 +70,7 @@ Meteor.methods({
         else return false;
     },
     'Transactions.findDelegation': function(address, height){
-        // following cosmos-sdk/x/slashing/spec/06_events.md and cosmos-sdk/x/staking/spec/06_events.md
+        // following chain-demo/x/slashing/spec/06_events.md and chain-demo/x/staking/spec/06_events.md
         return Transactions.find({
             $or: [{$and: [
                 {"events.type": "delegate"},

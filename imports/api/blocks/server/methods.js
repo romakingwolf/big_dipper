@@ -523,7 +523,7 @@ Meteor.methods({
                                         console.log(`validator with consensus_pubkey ${conPubKey} not in db`);
 
                                         validatorData.pub_key = {
-                                            "type" : "tendermint/PubKeyEd25519",
+                                            "type" : "chain-demoPubKeyEd25519",
                                             "value": Meteor.call('bech32ToPubkey', conPubKey)
                                         }
                                         validatorData.address = getAddress(validatorData.pub_key);

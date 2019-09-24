@@ -22,9 +22,9 @@ Meteor.methods({
             if (available.statusCode == 200){
                 let response = JSON.parse(available.content).result;
                 let account;
-                if (response.type === 'cosmos-sdk/Account')
+                if (response.type === 'chain-demo/Account')
                     account = response.value;
-                else if (response.type === 'cosmos-sdk/DelayedVestingAccount' || response.type === 'cosmos-sdk/ContinuousVestingAccount')
+                else if (response.type === 'chain-demo/DelayedVestingAccount' || response.type === 'chain-demo/ContinuousVestingAccount')
                     account = response.value.BaseVestingAccount.BaseAccount
                 if (account && account.account_number != null)
                     return account

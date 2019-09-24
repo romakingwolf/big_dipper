@@ -256,7 +256,7 @@ export class Ledger {
                 account_number: txContext.accountNumber.toString(),
                 sequence: txContext.sequence.toString(),
                 pub_key: {
-                    type: 'tendermint/PubKeySecp256k1',
+                    type: 'chain-demoPrivKeyEd25519',
                     value: txContext.pk//Buffer.from(txContext.pk, 'hex').toString('base64'),
                 },
             },
@@ -286,7 +286,7 @@ export class Ledger {
                     account_number: txContext.accountNumber.toString(),
                     sequence: txContext.sequence.toString(),
                     pub_key: {
-                        type: 'tendermint/PubKeySecp256k1',
+                        type: 'chain-demoPrivKeyEd25519',
                         value: txContext.pk || 'PK',
                     },
                 }],
@@ -304,7 +304,7 @@ export class Ledger {
         uatomAmount
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgDelegate',
+            type: 'chain-demo/MsgDelegate',
             value: {
                 amount: {
                     amount: uatomAmount.toString(),
@@ -326,7 +326,7 @@ export class Ledger {
         uatomAmount
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgUndelegate',
+            type: 'chain-demo/MsgUndelegate',
             value: {
                 amount: {
                     amount: uatomAmount.toString(),
@@ -349,7 +349,7 @@ export class Ledger {
         uatomAmount
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgBeginRedelegate',
+            type: 'chain-demo/MsgBeginRedelegate',
             value: {
                 amount: {
                     amount: uatomAmount.toString(),
@@ -372,7 +372,7 @@ export class Ledger {
         amount
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgSend',
+            type: 'chain-demo/MsgSend',
             value: {
                 amount: [{
                     amount: amount.toString(),
@@ -393,10 +393,10 @@ export class Ledger {
         deposit
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgSubmitProposal',
+            type: 'chain-demo/MsgSubmitProposal',
             value: {
                 content: {
-                    type: "cosmos-sdk/TextProposal",
+                    type: "chain-demo/TextProposal",
                     value: {
                         description: description,
                         title: title
@@ -419,7 +419,7 @@ export class Ledger {
         option,
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgVote',
+            type: 'chain-demo/MsgVote',
             value: {
                 option,
                 proposal_id: proposalId.toString(),
@@ -436,7 +436,7 @@ export class Ledger {
         amount,
     ) {
         const txMsg = {
-            type: 'cosmos-sdk/MsgDeposit',
+            type: 'chain-demo/MsgDeposit',
             value: {
                 amount: [{
                     amount: amount.toString(),
